@@ -7,24 +7,35 @@
 <body>
 <script>
     function insertNumberToArray(array, number, index) {
-        if ( index < 0 || index > array.length){
+        // Kiểm tra vị trí index có hợp lệ không
+        if (index < 0 || index > array.length) {
             return array;
         }
-        let newArray = []; // Tạo mảng mới để lưu kết quả
-        for (let i = 0; i < array.length; i++){   // Duyệt qua mảng ban đầu và thêm các phần tử vào mảng mới
-            if (i=== index){   // Nếu đến vị trí index thêm số number vào mảng mới
-                newArray.push(number);
+
+        // Tạo mảng mới với kích thước lớn hơn 1 phần tử so với mảng ban đầu
+        let newArray = new Array(array.length + 1);
+
+        // Duyệt qua mảng ban đầu
+        for (let i = 0, j = 0; i < array.length; i++, j++) {
+            // Nếu đến vị trí index, thêm số mới vào mảng mới
+            if (i === index) {
+                newArray[j] = number;
+                j++;
             }
-            newArray.push(array[i]); // Thêm các phần từ mảng ban đầu vào mảng mới
+            // Thêm phần tử từ mảng ban đầu vào mảng mới
+            newArray[j] = array[i];
         }
-        if (index >= array.length){  // Nếu index lớn hơn hoặc bằng chiều dài của mảng, thêm số num vào cuối mảng mới
-            newArray.push(number);
+
+        // Nếu index lớn hơn hoặc bằng chiều dài của mảng, thêm số mới vào cuối mảng mới
+        if (index >= array.length) {
+            newArray[array.length] = number;
         }
-        return  newArray; // Trả về mảng mới
+
+        return newArray; // Trả về mảng mới
     }
 
-    // test
-    let array = [1,2 ,3, 4, 5];
+    // Test hàm
+    let array = [1, 2, 3, 4, 5];
     let newX = 10;
     let newIndex = 2;
     let newArray = insertNumberToArray(array, newX, newIndex);
