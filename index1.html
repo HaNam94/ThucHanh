@@ -2,10 +2,29 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Bài1</title>
+    <title>Bài 1</title>
 </head>
 <body>
 <script>
+    function findAvg(scores) {
+        // Khởi tạo tổng điểm
+        let sum = 0;
+
+        // Duyệt mảng điểm thi và tính tổng
+        for (var i = 0; i < scores.length; i++) {
+            sum += scores[i];
+        }
+
+        // Tính điểm trung bình
+        let average = sum / scores.length;
+
+        // Trả về điểm trung bình
+        return average;
+    }
+    // Test
+    let scores = [85, 90, 78, 95, 88];
+    let avg = findAvg(scores);
+    console.log("Điểm trung bình: " + avg);
 
 </script>
 </body>

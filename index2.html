@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 2</title>
+</head>
+<body>
+<script>
+    function insertNumberToArray(array, number, index) {
+        if ( index < 0 || index > array.length){
+            return array;
+        }
+        let newArray = []; // Tạo mảng mới để lưu kết quả
+        for (let i = 0; i < array.length; i++){   // Duyệt qua mảng ban đầu và thêm các phần tử vào mảng mới
+            if (i=== index){   // Nếu đến vị trí index thêm số number vào mảng mới
+                newArray.push(number);
+            }
+            newArray.push(array[i]); // Thêm các phần từ mảng ban đầu vào mảng mới
+        }
+        if (index >= array.length){  // Nếu index lớn hơn hoặc bằng chiều dài của mảng, thêm số num vào cuối mảng mới
+            newArray.push(number);
+        }
+        return  newArray; // Trả về mảng mới
+    }
+
+    // test
+    let array = [1,2 ,3, 4, 5];
+    let newX = 10;
+    let newIndex = 2;
+    let newArray = insertNumberToArray(array, newX, newIndex);
+    console.log(newArray);
+</script>
+</body>
+</html>

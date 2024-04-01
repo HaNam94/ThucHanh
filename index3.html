@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 3</title>
+</head>
+<body>
+<script>
+    function sumOfListPrime(x) {
+        let sum = 0;
+
+        function isPrime(num) { // Hàm kiểm tra số nguyên tố
+            if (num <= 1) return false;
+            if (num <= 3) return true;
+            if (num % 2 === 0 || num % 3 === 0) return false;
+            for (let i = 5; i * i <= num; i +=6){
+                if (num % i === 0|| num % (i + 2) === 0) return false;
+            }
+            return true;
+        }
+        for (let i = 0; i <= x; i++){ // Duyệt qua các số từ 0 tới x
+            if (isPrime(i)){ // nếu số đó số nguyên tố thêm vaào tổng
+                sum += i;
+            }
+        }
+        return sum;
+    }
+
+    // Test
+    let x = 10;
+    let result = sumOfListPrime(x);
+    console.log("Tổng các số nguyên từ 0 đên " + x + "là" + result);
+</script>
+</body>
+</html>
